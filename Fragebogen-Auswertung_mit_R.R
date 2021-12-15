@@ -60,9 +60,10 @@ thesen_stapel_barplot <- function(){
   thesen_plot <- matrix(0, nrow = 10, ncol = 4)
   for(i in 1:10){
     setz <- table(thesen[i])
-    for(j in 1:4){
-      thesen_plot[i,j] <- setz[j]
-    }
+    thesen_plot[i,1] <- setz[3]
+    thesen_plot[i,2] <- setz[1]
+    thesen_plot[i,3] <- setz[2]
+    thesen_plot[i,4] <- setz[4]
   }
   return(thesen_plot)
 }

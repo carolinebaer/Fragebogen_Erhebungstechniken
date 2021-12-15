@@ -70,6 +70,11 @@ thesen_stapel_barplot <- function(){
 matrix_plot <- thesen_stapel_barplot()
 matrix_plot[7,4] <- 0  #da, "stimme voll zu" von niemanden angekreuzt wurde 
 barplot(t(matrix_plot), horiz = TRUE, col = c("indianred4", "goldenrod", 
-        "darkseagreen3", "darkslategrey"), main = "gestapeltes Balkendiagramm")
-
+        "darkseagreen3", "darkslategrey"), main = "gestapeltes Balkendiagramm",
+        names.arg = c("traue_keiner", "zukunftsorientiert", "trocken",
+                      "Berufsaussichten", "Angst", "Infoquelle",
+                      "nur_Maenner", "Kreativitaet", "beweisen_nichts",
+                      "vielf_Anwendung"), las = 2, axes = FALSE,
+        legend.text = c("Stimme gar nicht zu", "Stimme eher nicht zu",
+                        "Stimme eher zu", "Stimme voll zu"))
 

@@ -80,7 +80,81 @@ barplot(t(matrix_plot), horiz = TRUE, col = c("indianred4", "goldenrod",
                         "Stimme eher zu", "Stimme voll zu"))
 #C: Text der Balken noch abgeschnitten -> Raender vermtulich noch aendern
 #C: die Legende muss außerhalb des Diagramms
+#C: eine Sortierung nach rot oder dunkelgruen waere ausserdem noch schoen
+
 
 
 eigenschaften <- umf[16:25]
+
+angekreuz_eig <- eigenschaften == "Ja"
+angekreuz_eig
+colSums(angekreuz_eig)
+#     verstaendlich                       cool               innovativ 
+#                33                         20                      13 
+#        langweilig             rechenintensiv             kompliziert 
+#                14                         43                      39 
+# abwechslungsreich    reine_Zeitverschwendung             anstrengend 
+#                27                          3                      34 
+#          spannend 
+#                42 
+
+angekreuz_eig <- colSums(angekreuz_eig)
+barplot(angekreuz_eig, col = "darkcyan", names.arg = names(angekreuz_eig), las = 2,
+        main = "Haeufigkeit der angekreuzten Eigenschaften")
+barplot(sort(angekreuz_eig), col = "darkcyan", names.arg = names(sort(angekreuz_eig)),
+        las = 2, main = "Haeufigkeit der angekreuzten Eigenschaften")
+
+#positiv <- c(1:3, 7, 10)   #positive Eigenschaften (vorm sortieren)
+#negativ <- c(4:6, 8:9)
+barplot(sort(angekreuz_eig), col = c(rep("darkcyan", 3), rep("brown4", 3), 
+                                     "darkcyan", rep("brown4", 2), "darkcyan"), 
+        main = "Haeufigkeit der angekreuzten Eigenschaften", 
+        names.arg = names(sort(angekreuz_eig)), las = 2)
+legend(0,40,c("positive Eigenschaften", "negative Eigenschaften"),
+       fill = c("darkcyan", "brown4"))
+#C: man koennte das legend() auch reinsetzen erzeugt aber eine Warnmeldung
+#C: die Eigenschafts-Namen sind leider noch abgeschnitten
+
+
+
+relevanz <- umf[13:15]
+table(relevanz)
+
+plot(relevanz)
+
+
+#mit Kodierung: "absolut irrelevant" = 1,...,"ziemlich relevant" = 6
+table(relevanz$Relevanz_Beruf)
+kod_rel_beruf <- c( rep(1,3), rep(2, 4), rep(3,14), rep(4,27), rep(5,11), rep(6,12))
+mean(kod_rel_beruf)
+#[1] 4.056338
+median(kod_rel_beruf)
+#[1] 4
+#dh. der Durchschnitt haelt Statistik fuer den Beruf fuer "eher relevant"
+
+table(relevanz$Relevanz_Studium)
+kod_rel_studium <- c(rep(1,5), rep(2,23), rep(3,8), rep(4,12), rep(5,8), rep(6,15))
+mean(kod_rel_studium)
+#[1] 3.56338
+median(kod_rel_studium)
+#[1] 3
+#dh. der Durchschnitt haelt Statistik fuers Studium fuer "eher irrelevant" 
+# bis "eher relevant"
+
+table(relevanz$Relevanz_Alltag)
+kod_rel_alltag <- c(rep(1,3), rep(2,4), rep(3,14), rep(4,27), rep(5,11), rep(6,12))
+mean(kod_rel_alltag)
+#[1] 4.056338
+median(kod_rel_alltag)
+#[1] 4
+#dh. der Durchschnitt haelt Statistik fuer den Beruf fuer "eher relevant"
+
+#C: auffaellig sind die so aehnlichen Ergebnisse bei Beruf und Alltag
+sum(na.omit(relevanz$Relevanz_Beruf) == na.omit(relevanz$Relevanz_Alltag)) #21
+sum(na.omit(relevanz$Relevanz_Beruf) != na.omit(relevanz$Relevanz_Alltag)) #50
+#C: trotz gleich mediane und mittelwerte, zeigt sich nicht, dass die befragten bei
+#  beruf und alltag gleich angekreuzt haben
+
+
+
 

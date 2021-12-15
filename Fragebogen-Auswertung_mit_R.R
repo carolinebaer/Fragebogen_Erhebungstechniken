@@ -78,4 +78,9 @@ barplot(t(matrix_plot), horiz = TRUE, col = c("indianred4", "goldenrod",
                       "vielf_Anwendung"), las = 2, axes = FALSE,
         legend.text = c("Stimme gar nicht zu", "Stimme eher nicht zu",
                         "Stimme eher zu", "Stimme voll zu"))
+#C: Text der Balken noch abgeschnitten -> Raender vermtulich noch aendern
+#C: die Legende muss außerhalb des Diagramms
+
+
+eigenschaften <- umf[16:25]
 

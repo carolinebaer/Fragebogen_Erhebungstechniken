@@ -125,29 +125,31 @@ plot(relevanz)
 
 #mit Kodierung: "absolut irrelevant" = 1,...,"ziemlich relevant" = 6
 table(relevanz$Relevanz_Beruf)
-kod_rel_beruf <- c( rep(1,3), rep(2, 4), rep(3,14), rep(4,27), rep(5,11), rep(6,12))
+kod_rel_beruf <- c( rep(1,3), rep(6, 4), rep(3,14), rep(4,27), rep(2,11), rep(5,12))
 mean(kod_rel_beruf)
-#[1] 4.056338
+#[1] 3.647887
 median(kod_rel_beruf)
 #[1] 4
-#dh. der Durchschnitt haelt Statistik fuer den Beruf fuer "eher relevant"
+#dh. der Durchschnitt haelt Statistik fuer den Beruf fuer "eher irrelevant" bis
+# "eher relevant"
 
 table(relevanz$Relevanz_Studium)
-kod_rel_studium <- c(rep(1,5), rep(2,23), rep(3,8), rep(4,12), rep(5,8), rep(6,15))
+kod_rel_studium <- c(rep(1,5), rep(6,23), rep(3,8), rep(4,12), rep(2,8), rep(5,15))
 mean(kod_rel_studium)
-#[1] 3.56338
+#[1] 4.309859
 median(kod_rel_studium)
-#[1] 3
-#dh. der Durchschnitt haelt Statistik fuers Studium fuer "eher irrelevant" 
-# bis "eher relevant"
+#[1] 5
+#dh. der Durchschnitt haelt Statistik fuers Studium fuer "eher relevant" 
+# bis "ziemlich relevant"
 
 table(relevanz$Relevanz_Alltag)
-kod_rel_alltag <- c(rep(1,3), rep(2,4), rep(3,14), rep(4,27), rep(5,11), rep(6,12))
+kod_rel_alltag <- c(rep(1,3), rep(6,4), rep(3,14), rep(4,27), rep(2,11), rep(5,12))
 mean(kod_rel_alltag)
-#[1] 4.056338
+#[1] 3.647887
 median(kod_rel_alltag)
 #[1] 4
-#dh. der Durchschnitt haelt Statistik fuer den Beruf fuer "eher relevant"
+#dh. der Durchschnitt haelt Statistik fuer den Beruf fuer "eher irrelevant" bis
+# "eher relevant
 
 #C: auffaellig sind die so aehnlichen Ergebnisse bei Beruf und Alltag
 sum(na.omit(relevanz$Relevanz_Beruf) == na.omit(relevanz$Relevanz_Alltag)) #21

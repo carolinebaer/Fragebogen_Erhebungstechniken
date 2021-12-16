@@ -172,3 +172,7 @@ boxplot(kod_rel_alltag)
 table(relevanz$Relevanz_Beruf)
 table(relevanz$Relevanz_Alltag)
 #Anzahlen der einzelnen Ausprägungen aber definitv nicht gleich
+
+
+studi_fach_ohne_na <- umf[is.na(umf$Studienfach) == FALSE,]
+statis <- studi_fach_ohne_na[studi_fach_ohne_na$Studienfach %in% c("Statistik","Data Science"),]

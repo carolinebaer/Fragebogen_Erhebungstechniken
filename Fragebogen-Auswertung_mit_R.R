@@ -149,7 +149,7 @@ mean(kod_rel_alltag)
 median(kod_rel_alltag)
 #[1] 4
 #dh. der Durchschnitt haelt Statistik fuer den Beruf fuer "eher irrelevant" bis
-# "eher relevant
+# "eher relevant"
 
 #C: auffaellig sind die so aehnlichen Ergebnisse bei Beruf und Alltag
 sum(na.omit(relevanz$Relevanz_Beruf) == na.omit(relevanz$Relevanz_Alltag)) #21
@@ -158,5 +158,13 @@ sum(na.omit(relevanz$Relevanz_Beruf) != na.omit(relevanz$Relevanz_Alltag)) #50
 #  beruf und alltag gleich angekreuzt haben
 
 
+all(which(is.na(relevanz$Relevanz_Beruf)) == which(is.na(relevanz$Relevanz_Alltag)))
+#entweder alle drei oder keine beantwortet worden
 
-
+boxplot(kod_rel_beruf)
+boxplot(kod_rel_studium)
+boxplot(kod_rel_alltag)
+#boxplots von Beurf und Alltag identisch
+table(relevanz$Relevanz_Beruf)
+table(relevanz$Relevanz_Alltag)
+#Anzahlen der einzelnen Ausprägungen aber definitv nicht gleich

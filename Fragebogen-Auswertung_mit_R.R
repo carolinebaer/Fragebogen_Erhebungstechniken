@@ -187,3 +187,17 @@ statis$Leistung
 
 nicht_statis <- studi_fach_ohne_na[(studi_fach_ohne_na$Studienfach %in% 
                                    c("Statistik", "Data Science")) == FALSE ,]
+
+
+barplot(table(nicht_statis$Relevanz_Beruf))
+barplot(table(statis$Relevanz_Beruf))
+
+barplot(table(nicht_statis$Traue_keiner_Statistik))
+barplot(table(statis$Traue_keiner_Statistik))
+
+barplot(table(nicht_statis$zukunftsorientiert))
+barplot(table(statis$zukunftsorientiert))
+
+table(nicht_statis$Geschlecht)
+table(statis$Geschlecht)
+

@@ -175,4 +175,15 @@ table(relevanz$Relevanz_Alltag)
 
 
 studi_fach_ohne_na <- umf[is.na(umf$Studienfach) == FALSE,]
-statis <- studi_fach_ohne_na[studi_fach_ohne_na$Studienfach %in% c("Statistik","Data Science"),]
+statis <- studi_fach_ohne_na[studi_fach_ohne_na$Studienfach %in% c("Statistik",
+                                                                   "Data Science"),]
+#der extra-Datensatz mit den Antworten von Statistik und Data Science -Studenten
+
+statis$Antwort_ID
+statis$Einstiegsfrage
+#alle vorhanden Antworten positiverer Art
+statis$Leistung
+#Leistungseinschaetzung "mittelmaessig" oder besser
+
+nicht_statis <- studi_fach_ohne_na[(studi_fach_ohne_na$Studienfach %in% 
+                                   c("Statistik", "Data Science")) == FALSE ,]

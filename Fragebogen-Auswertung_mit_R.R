@@ -54,6 +54,7 @@ names(umf) <- c("Antwort_ID", "Einstiegsfrage", "Traue_keiner_Statistik",
                 "Studienfach_sonstiges", "Abschluss", "Abschluss_sonstiges",
                 "Fachsemester", "Anmerkungen" )
 
+umf_ohne_freifeld <- umf[-c(2,28)]
 
 #sehr nützlicher Link zur Farbwahl:
 #https://bjoernwalther.com/farben-in-r-der-col-befehl/
@@ -87,6 +88,34 @@ barplot(t(matrix_plot), horiz = TRUE, col = c("indianred4", "goldenrod",
 #C: eine Sortierung nach rot oder dunkelgruen waere ausserdem noch schoen
 
 
+#C: sortiertes Balkendiagramm (nach "stimme gar nicht zu")
+sort(matrix_plot[,1])
+# [1]  1  1  2  2  3  5  6 20 27 42
+matrix_plot_sort <- matrix(c(matrix_plot[10,], matrix_plot[6,], matrix_plot[5,],
+                             matrix_plot[3,], matrix_plot[4,], matrix_plot[2,],
+                             matrix_plot[1,], matrix_plot[8,], matrix_plot[9,],
+                             matrix_plot[7,]), nrow = 10, byrow = TRUE)
+matrix_plot_sort
+
+#Raender: c(unten, links, oben, rechts)
+#opar <- par(no.readonly = TRUE)  ##sollte eig urspungszustand wiederherstellen
+
+par(mar = c(4,7.5,3,1)) #Raender einstellen, damit nichts abgeschnitten ist
+barplot(t(matrix_plot_sort), horiz = TRUE, col = c("indianred4", "goldenrod", 
+                                "darkseagreen3", "darkslategrey"), 
+        main = "gestapeltes Balkendiagramm",
+        names.arg = c("vielf_Anwendung", "Infoquelle", "Angst", "trocken", 
+                      "Berufsaussichten", "zukunftsorientiert", "traue_keiner", 
+                      "Kreativitaet", "beweisen_nichts", "nur_Maenner"), 
+        las = 2, axes = FALSE)
+legend(x = "bottom", inset = c(0, -0.2), 
+       c("Stimme gar nicht zu", "Stimme eher nicht zu", "Stimme eher zu", 
+         "Stimme voll zu"), xpd = TRUE, ncol = 2, 
+       fill = c("indianred4", "goldenrod", "darkseagreen3", "darkslategrey"), 
+       cex = 1)
+#on.exit(par(opar))
+
+
 
 eigenschaften <- umf[16:25]
 
@@ -103,6 +132,7 @@ colSums(angekreuz_eig)
 #                42 
 
 angekreuz_eig <- colSums(angekreuz_eig)
+par(mar = c(9,3,3,1))
 barplot(angekreuz_eig, col = "darkcyan", names.arg = names(angekreuz_eig), las = 2,
         main = "Haeufigkeit der angekreuzten Eigenschaften")
 barplot(sort(angekreuz_eig), col = "darkcyan", names.arg = names(sort(angekreuz_eig)),

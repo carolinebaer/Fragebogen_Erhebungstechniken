@@ -201,3 +201,4 @@ barplot(table(statis$zukunftsorientiert))
 table(nicht_statis$Geschlecht)
 table(statis$Geschlecht)
 
+write.csv(umf, "Umfrage_Tabelle.csv")

@@ -188,7 +188,7 @@ statis$Leistung
 nicht_statis <- studi_fach_ohne_na[(studi_fach_ohne_na$Studienfach %in% 
                                    c("Statistik", "Data Science")) == FALSE ,]
 
-
+par(mfrow = c(1,2))
 barplot(table(nicht_statis$Relevanz_Beruf))
 barplot(table(statis$Relevanz_Beruf))
 
@@ -201,4 +201,7 @@ barplot(table(statis$zukunftsorientiert))
 table(nicht_statis$Geschlecht)
 table(statis$Geschlecht)
 
-write.csv(umf, "Umfrage_Tabelle.csv")
+#write.csv(umf, "Umfrage_Tabelle.csv")
+
+fac_statis <- sapply(statis, factor)
+str(fac_statis)

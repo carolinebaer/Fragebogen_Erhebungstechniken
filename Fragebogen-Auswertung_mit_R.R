@@ -54,12 +54,13 @@ names(umf) <- c("Antwort_ID", "Einstiegsfrage", "Traue_keiner_Statistik",
                 "Studienfach_sonstiges", "Abschluss", "Abschluss_sonstiges",
                 "Fachsemester", "Anmerkungen" )
 
-umf_ohne_freifeld <- umf[-c(2,28)]
+
+umf_ohne_freifeld <- umf[-c(2,28)] #____________________________________________
 
 #sehr nützlicher Link zur Farbwahl:
 #https://bjoernwalther.com/farben-in-r-der-col-befehl/
 
-thesen <- umf[3:12]
+thesen <- umf[3:12] #___________________________________________________________
 
 thesen_stapel_barplot <- function(){
   thesen_plot <- matrix(0, nrow = 10, ncol = 4)
@@ -117,7 +118,7 @@ legend(x = "bottom", inset = c(0, -0.2),
 
 
 
-eigenschaften <- umf[16:25]
+eigenschaften <- umf[16:25] #___________________________________________________
 
 angekreuz_eig <- eigenschaften == "Ja"
 angekreuz_eig
@@ -151,7 +152,14 @@ legend(0,40,c("positive Eigenschaften", "negative Eigenschaften"),
 
 
 
-relevanz <- umf[13:15]
+relevanz <- umf[13:15] #________________________________________________________
+# fac_relevanz <- list(c(as.factor(relevanz[1]), as.factor(relevanz[2]),
+#                                  as.factor(relevanz[3])))
+# fac_relevanz <- factor(relevanz$Relevanz_Beruf, labels = c("Absolut irrelevant",
+#                        "Ziemlich irrelevant", "Eher irrelevant", "Eher relevant",
+#                        "Ziemlich relevant", "Absolut relevant"))
+# str(fac_relevanz)
+
 table(relevanz)
 
 plot(relevanz)
@@ -195,16 +203,17 @@ sum(na.omit(relevanz$Relevanz_Beruf) != na.omit(relevanz$Relevanz_Alltag)) #50
 all(which(is.na(relevanz$Relevanz_Beruf)) == which(is.na(relevanz$Relevanz_Alltag)))
 #entweder alle drei oder keine beantwortet worden
 
-boxplot(kod_rel_beruf)
-boxplot(kod_rel_studium)
-boxplot(kod_rel_alltag)
-#boxplots von Beurf und Alltag identisch
+par(mfrow = c(1,2))
+boxplot(kod_rel_beruf, main = "Beruf-Relevanz")
+boxplot(kod_rel_alltag, main = "Alltag-Relevanz")
+boxplot(kod_rel_studium, main = "Studium-Relevanz")
+#boxplots von Beruf und Alltag identisch
 table(relevanz$Relevanz_Beruf)
 table(relevanz$Relevanz_Alltag)
 #Anzahlen der einzelnen Ausprägungen aber definitv nicht gleich
 
 
-studi_fach_ohne_na <- umf[is.na(umf$Studienfach) == FALSE,]
+studi_fach_ohne_na <- umf[is.na(umf$Studienfach) == FALSE,] #____________________
 statis <- studi_fach_ohne_na[studi_fach_ohne_na$Studienfach %in% c("Statistik",
                                                                    "Data Science"),]
 #der extra-Datensatz mit den Antworten von Statistik und Data Science -Studenten
@@ -216,11 +225,13 @@ statis$Leistung
 #Leistungseinschaetzung "mittelmaessig" oder besser
 
 nicht_statis <- studi_fach_ohne_na[(studi_fach_ohne_na$Studienfach %in% 
-                                   c("Statistik", "Data Science")) == FALSE ,]
+                                   c("Statistik", "Data Science")) == FALSE ,] #___
 
 par(mfrow = c(1,2))
-barplot(table(nicht_statis$Relevanz_Beruf))
-barplot(table(statis$Relevanz_Beruf))
+barplot(table(nicht_statis$Relevanz_Beruf), 
+        main = "Berufs-Relevanz (Nicht-Statistiker)")
+barplot(c(table(statis$Relevanz_Beruf), 0, 0, 0), 
+        main = "Berufs-Relevanz (Statistiker)")
 
 barplot(table(nicht_statis$Traue_keiner_Statistik))
 barplot(table(statis$Traue_keiner_Statistik))

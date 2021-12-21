@@ -248,7 +248,48 @@ statis[ ,c(3:15,26,27,30)] <- lapply( statis[ ,c(3:15,26,27,30)], factor)
 # the "[]" keeps the dataframe structure
 str(statis)
 
+#factor einfuegen
+install.packages("forcats")
+library("forcats")
 
+#fuer Beruf:
+fac_umf_rel_beruf <- as.factor(umf$Relevanz_Beruf)
+levels(fac_umf_rel_beruf)
+table(fac_umf_rel_beruf)
+fct_rev(fac_umf_rel_beruf)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Absolut irrelevant", after = 0)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Ziemlich irrelevant", after = 1)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Eher irrelevant", after = 2)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Eher relevant", after = 3)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Ziemlich relevant", after = 4)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Absolut relevant", after = 5)
+table(fac_umf_rel_beruf)
+umf$Relevanz_Beruf <- fac_umf_rel_beruf
 
+#fuer Alltag (Kopie von beruf)
+fac_umf_rel_beruf <- as.factor(umf$Relevanz_Alltag)
+levels(fac_umf_rel_beruf)
+table(fac_umf_rel_beruf)
+fct_rev(fac_umf_rel_beruf)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Absolut irrelevant", after = 0)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Ziemlich irrelevant", after = 1)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Eher irrelevant", after = 2)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Eher relevant", after = 3)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Ziemlich relevant", after = 4)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Absolut relevant", after = 5)
+table(fac_umf_rel_beruf)
+umf$Relevanz_Alltag <- fac_umf_rel_beruf
 
-
+#fuer Studium (Kopie von beruf)
+fac_umf_rel_beruf <- as.factor(umf$Relevanz_Studium)
+levels(fac_umf_rel_beruf)
+table(fac_umf_rel_beruf)
+fct_rev(fac_umf_rel_beruf)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Absolut irrelevant", after = 0)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Ziemlich irrelevant", after = 1)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Eher irrelevant", after = 2)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Eher relevant", after = 3)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Ziemlich relevant", after = 4)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Absolut relevant", after = 5)
+table(fac_umf_rel_beruf)
+umf$Relevanz_Studium <- fac_umf_rel_beruf

@@ -54,6 +54,157 @@ names(umf) <- c("Antwort_ID", "Einstiegsfrage", "Traue_keiner_Statistik",
                 "Studienfach_sonstiges", "Abschluss", "Abschluss_sonstiges",
                 "Fachsemester", "Anmerkungen" )
 
+statis[ ,c(3:15,26,27,30)] <- lapply( statis[ ,c(3:15,26,27,30)], factor) 
+# the "[]" keeps the dataframe structure
+str(statis)
+
+#factor einfuegen ______________________________________________________________
+#install.packages("forcats")
+library("forcats")
+
+#fuer Beruf:
+fac_umf_rel_beruf <- as.factor(umf$Relevanz_Beruf)
+levels(fac_umf_rel_beruf)
+table(fac_umf_rel_beruf)
+fct_rev(fac_umf_rel_beruf)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Absolut irrelevant", after = 0)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Ziemlich irrelevant", after = 1)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Eher irrelevant", after = 2)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Eher relevant", after = 3)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Ziemlich relevant", after = 4)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Absolut relevant", after = 5)
+table(fac_umf_rel_beruf)
+umf$Relevanz_Beruf <- fac_umf_rel_beruf
+
+#fuer Alltag (Kopie von beruf)
+fac_umf_rel_beruf <- as.factor(umf$Relevanz_Alltag)
+levels(fac_umf_rel_beruf)
+table(fac_umf_rel_beruf)
+fct_rev(fac_umf_rel_beruf)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Absolut irrelevant", after = 0)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Ziemlich irrelevant", after = 1)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Eher irrelevant", after = 2)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Eher relevant", after = 3)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Ziemlich relevant", after = 4)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Absolut relevant", after = 5)
+table(fac_umf_rel_beruf)
+umf$Relevanz_Alltag <- fac_umf_rel_beruf
+
+#fuer Studium (Kopie von beruf)
+fac_umf_rel_beruf <- as.factor(umf$Relevanz_Studium)
+levels(fac_umf_rel_beruf)
+table(fac_umf_rel_beruf)
+fct_rev(fac_umf_rel_beruf)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Absolut irrelevant", after = 0)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Ziemlich irrelevant", after = 1)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Eher irrelevant", after = 2)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Eher relevant", after = 3)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Ziemlich relevant", after = 4)
+fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Absolut relevant", after = 5)
+table(fac_umf_rel_beruf)
+umf$Relevanz_Studium <- fac_umf_rel_beruf
+
+
+levels(umf$Traue_keiner_Statistik)
+umf$Traue_keiner_Statistik <- fct_relevel(umf$Traue_keiner_Statistik, "Stimme gar nicht zu", after = 0 )
+levels(umf$Traue_keiner_Statistik)
+
+levels(umf$zukunftsorientiert)
+umf$zukunftsorientiert <- fct_relevel(umf$zukunftsorientiert, "Stimme gar nicht zu", after = 0 )
+levels(umf$zukunftsorientiert)
+
+levels(umf$trocken)
+umf$trocken <- fct_relevel(umf$trocken, "Stimme gar nicht zu", after = 0 )
+levels(umf$trocken)
+
+levels(umf$gute_Berufsaussichten)
+umf$gute_Berufsaussichten <- fct_relevel(umf$gute_Berufsaussichten, "Stimme gar nicht zu", after = 0 )
+levels(umf$gute_Berufsaussichten)
+
+levels(umf$Angst)
+umf$Angst <- fct_relevel(umf$Angst, "Stimme gar nicht zu", after = 0 )
+levels(umf$Angst)
+
+#teil2
+fac_umf12 <- as.factor(umf[ ,12])
+factor(fac_umf12)
+umf[ ,12] <- fct_relevel(fac_umf12, "Stimme gar nicht zu", after = 0)
+factor(umf[ ,12])
+
+fac_umf11 <- as.factor(umf[ ,11])
+factor(fac_umf11)
+umf[ ,11] <- fct_relevel(fac_umf11, "Stimme gar nicht zu", after = 0)
+factor(umf[ ,11])
+
+fac_umf10 <- as.factor(umf[ ,10])
+factor(fac_umf10)
+umf[ ,10] <- fct_relevel(fac_umf10, "Stimme gar nicht zu", after = 0)
+factor(umf[ ,10])
+
+fac_umf9 <- as.factor(umf[ ,9])
+factor(fac_umf9)
+levels(fac_umf9) <- c("Stimme eher nicht zu", "Stimme eher zu", "Stimme gar nicht zu", "Stimme voll zu")
+umf[ ,9] <- fct_relevel(fac_umf9, "Stimme gar nicht zu", after = 0)
+factor(umf[ ,9])
+
+fac_umf8 <- as.factor(umf[ ,8])
+factor(fac_umf8)
+umf[ ,8] <- fct_relevel(fac_umf8, "Stimme gar nicht zu", after = 0)
+factor(umf[ ,8])
+
+
+#
+fac_umf26 <- as.factor(umf[ ,26])
+
+fac_umf26 <- fct_relevel(fac_umf26, "negativ", after = 0)
+
+umf[, 26] <- fct_relevel(fac_umf26, "neutral", after = 2)
+
+levels(umf[, 26])
+
+# [1] "negativ"      "eher negativ" "neutral"      "eher positiv"
+
+# [5] "positiv"
+
+
+
+fac_umf27 <- as.factor(umf[ ,27])
+
+fac_umf27 <- fct_relevel(fac_umf27, "negativ", after = 0)
+
+umf[, 27] <- fct_relevel(fac_umf27, "neutral", after = 2)
+
+levels(umf[, 27])
+
+# [1] "negativ"      "eher negativ" "neutral"      "eher positiv"
+
+levels(umf[, 27]) <- c(levels(umf[, 27]), "positiv")
+
+levels(umf[, 27])
+
+# [1] "negativ"      "eher negativ" "neutral"      "eher positiv"
+
+# [5] "positiv" 
+
+
+
+fac_umf30 <- as.factor(umf[ ,30])
+
+levels(fac_umf30)
+
+umf[,30]  <- fct_rev(fac_umf30)
+
+levels(umf[,30])
+
+# [1] "schlecht"     "nicht so gut" "mittelmäßig"  "ganz gut"   
+
+# [5] "bestens"
+
+
+
+
+
+
 
 umf_ohne_freifeld <- umf[-c(2,28)] #____________________________________________
 
@@ -230,7 +381,7 @@ nicht_statis <- studi_fach_ohne_na[(studi_fach_ohne_na$Studienfach %in%
 par(mfrow = c(1,2))
 barplot(table(nicht_statis$Relevanz_Beruf), 
         main = "Berufs-Relevanz (Nicht-Statistiker)")
-barplot(c(table(statis$Relevanz_Beruf), 0, 0, 0), 
+barplot(table(statis$Relevanz_Beruf), 
         main = "Berufs-Relevanz (Statistiker)")
 
 barplot(table(nicht_statis$Traue_keiner_Statistik))
@@ -244,52 +395,3 @@ table(statis$Geschlecht)
 
 #write.csv(umf, "Umfrage_Tabelle.csv")
 
-statis[ ,c(3:15,26,27,30)] <- lapply( statis[ ,c(3:15,26,27,30)], factor) 
-# the "[]" keeps the dataframe structure
-str(statis)
-
-#factor einfuegen
-install.packages("forcats")
-library("forcats")
-
-#fuer Beruf:
-fac_umf_rel_beruf <- as.factor(umf$Relevanz_Beruf)
-levels(fac_umf_rel_beruf)
-table(fac_umf_rel_beruf)
-fct_rev(fac_umf_rel_beruf)
-fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Absolut irrelevant", after = 0)
-fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Ziemlich irrelevant", after = 1)
-fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Eher irrelevant", after = 2)
-fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Eher relevant", after = 3)
-fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Ziemlich relevant", after = 4)
-fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Absolut relevant", after = 5)
-table(fac_umf_rel_beruf)
-umf$Relevanz_Beruf <- fac_umf_rel_beruf
-
-#fuer Alltag (Kopie von beruf)
-fac_umf_rel_beruf <- as.factor(umf$Relevanz_Alltag)
-levels(fac_umf_rel_beruf)
-table(fac_umf_rel_beruf)
-fct_rev(fac_umf_rel_beruf)
-fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Absolut irrelevant", after = 0)
-fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Ziemlich irrelevant", after = 1)
-fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Eher irrelevant", after = 2)
-fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Eher relevant", after = 3)
-fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Ziemlich relevant", after = 4)
-fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Absolut relevant", after = 5)
-table(fac_umf_rel_beruf)
-umf$Relevanz_Alltag <- fac_umf_rel_beruf
-
-#fuer Studium (Kopie von beruf)
-fac_umf_rel_beruf <- as.factor(umf$Relevanz_Studium)
-levels(fac_umf_rel_beruf)
-table(fac_umf_rel_beruf)
-fct_rev(fac_umf_rel_beruf)
-fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Absolut irrelevant", after = 0)
-fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Ziemlich irrelevant", after = 1)
-fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Eher irrelevant", after = 2)
-fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Eher relevant", after = 3)
-fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Ziemlich relevant", after = 4)
-fac_umf_rel_beruf <- fct_relevel(fac_umf_rel_beruf, "Absolut relevant", after = 5)
-table(fac_umf_rel_beruf)
-umf$Relevanz_Studium <- fac_umf_rel_beruf

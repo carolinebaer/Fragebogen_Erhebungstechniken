@@ -495,6 +495,11 @@ legend(x = "bottom", inset = c(0, -0.2),
 dev.off()
 #-------------------------------------------------------------------------------
 ##-ASSOZIATIONEN & WAHRNEHMUNG-##
+
+
+barplot(table(studi_fach_ohne_na[26])/sum(table(studi_fach_ohne_na[26])), col = Coloursceme, main = "Eigene Assoziation des Faches Statistik", ylim = c(0,0.7))
+barplot(table(studi_fach_ohne_na[27])/sum(table(studi_fach_ohne_na[27])), col = Coloursceme, main = "Allgemeine Wahrnehmung des Faches Statistik", ylim = c(0,0.7))
+
 assoziation <- c(table(statis[26])/sum(table(statis[26])), table(nicht_statis[26])/sum(table(nicht_statis[26])))
 dim(assoziation) <- c(5,2)
 eigeneWahr <- c(table(statis[27])/sum(table(statis[27])), table(nicht_statis[27])/sum(table(nicht_statis[27])))

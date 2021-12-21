@@ -182,6 +182,7 @@ umf_ohne_freifeld <- umf[-c(2,28)] #____________________________________________
 thesen <- umf[3:12] #___________________________________________________________
 
 par(mfrow = c(1,1))
+#dev.off()  zum Zurueckstellen von allen Raendern, etc.
 
 thesen_stapel_barplot <- function(){
   thesen_plot <- matrix(0, nrow = 10, ncol = 4)
@@ -364,4 +365,78 @@ table(nicht_statis$Geschlecht)
 table(statis$Geschlecht)
 
 #write.csv(umf, "Umfrage_Tabelle.csv")
+
+#_______________________________________________________________________________
+#Grafiken
+#_______________________________________________________________________________
+#Eigenschaften-Abb1
+par(mar = c(9,4,4,4))
+#8 Statis und 50 nicht-statis (laut workspace), daher 68 insgesamt
+barplot(angekreuz_eig/68, col = "darkcyan", 
+    names.arg = c(names(angekreuz_eig)[1:7],"Zeitverschwendung",names(angekreuz_eig)[9:10]), 
+        las = 2, main = "Haeufigkeit der angekreuzten Eigenschaften", ylim = c(0,1))
+#Eigenschaften-Abb2
+barplot(sort(angekreuz_eig/68), col = "darkcyan", 
+        names.arg = c("Zeitverschwendung",names(sort(angekreuz_eig))[-1]),
+        las = 2, main = "Haeufigkeit der angekreuzten Eigenschaften", ylim = c(0,1))
+#Eigenschaften-Abb3
+barplot(sort(angekreuz_eig/68), col = c(rep("darkcyan", 3), rep("brown4", 3), 
+                                     "darkcyan", rep("brown4", 2), "darkcyan"), 
+        main = "Haeufigkeit der angekreuzten Eigenschaften", 
+        names.arg = c("Zeitverschwendung",names(sort(angekreuz_eig))[-1]), las = 2, ylim = c(0,1))
+legend(x="topleft",c("positive Eigenschaften", "negative Eigenschaften"),
+       fill = c("darkcyan", "brown4"), bty = "n")
+
+#Eigenschaften-Abb1(Statistik vs. Nicht-Statistik)
+eigensch_statis <- statis[16:25]
+angekreuz_eig_statis <- eigensch_statis == "Ja"
+angekreuz_eig_statis
+colSums(angekreuz_eig_statis)
+angekreuz_eig_statis <- colSums(angekreuz_eig_statis)
+
+eigensch_nicht_statis <- nicht_statis[16:25]
+angekreuz_eig_nicht_statis <- eigensch_nicht_statis == "Ja"
+angekreuz_eig_nicht_statis
+colSums(angekreuz_eig_nicht_statis)
+angekreuz_eig_nicht_statis <- colSums(angekreuz_eig_nicht_statis)
+
+par(mfrow = c(1,2))
+barplot(angekreuz_eig_statis/18, col = "darkcyan", names.arg = names(angekreuz_eig), las = 2,
+        main = "Haeufigkeit der angekreuzten Eigenschaften", ylim = c(0, 1))
+
+barplot(angekreuz_eig_nicht_statis/50, col = "darkcyan", names.arg = names(angekreuz_eig), las = 2,
+        main = "Haeufigkeit der angekreuzten Eigenschaften", ylim = c(0, 1))
+
+#Eigenschaften-Abb2(Statistik vs. Nicht-Statistik)
+barplot(sort(angekreuz_eig_statis)/18, col = "darkcyan", 
+        names.arg = c(names(sort(angekreuz_eig_statis))[1], 
+                      "Zeitverschwendung",names(sort(angekreuz_eig_statis))[3:10]),
+        las = 2, main = "Haeufigkeit der angekreuzten Eigenschaften-Statis", 
+        ylim = c(0, 1))
+
+barplot(sort(angekreuz_eig_nicht_statis)/50, col = "darkcyan", 
+        names.arg = c("Zeitverschwendung",names(sort(angekreuz_eig_nicht_statis))[2:10]),
+        las = 2, main = "Haeufigkeit der angekreuzten Eigenschaften-Nicht-Statis", 
+        ylim = c(0, 1))
+
+#Eigenschaften-Abb3(Statistik vs. Nicht-Statistik)
+par(mfrow = c(1,2))
+par(mar = c(9, 4,4,4))
+barplot(sort(angekreuz_eig_statis)/18, col = c(rep("darkcyan", 3), rep("brown4", 3), 
+                                     "darkcyan", rep("brown4", 2), "darkcyan"), 
+        main = "Haeufigkeit der angekreuzten Eigenschaften-Statis", 
+        names.arg = c("Zeitverschwendung",names(sort(angekreuz_eig_statis))[-1]), 
+        las = 2, ylim = c(0,1))
+legend(x="topleft",c("positive Eigenschaften", "negative Eigenschaften"),
+       fill = c("darkcyan", "brown4"), cex = 0.55, bty = "n")
+
+barplot(sort(angekreuz_eig_nicht_statis)/50, col = c(rep("darkcyan", 3), rep("brown4", 3), 
+                                     "darkcyan", rep("brown4", 2), "darkcyan"), 
+        main = "Haeufigkeit der angekreuzten Eigenschaften-Nicht-Statis", 
+        names.arg = c("Zeitverschwendung",names(sort(angekreuz_eig_nicht_statis))[-1]), 
+        las = 2, ylim = c(0,1))
+legend(x="topleft",c("positive Eigenschaften", "negative Eigenschaften"),
+       fill = c("darkcyan", "brown4"), cex = 0.55, bty = "n")
+
+#dev.off()  zum Zurueckstellen von allen Raendern, etc.
 

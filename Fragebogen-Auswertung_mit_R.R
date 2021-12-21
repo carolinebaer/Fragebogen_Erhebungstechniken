@@ -451,9 +451,6 @@ boxplot(na.omit(umf$Relevanz_Beruf), main = "Berufs-Relevanz")
 boxplot(na.omit(umf$Relevanz_Studium), main = "Studiums-Relevanz")
 boxplot(na.omit(umf$Relevanz_Alltag), main = "Alltag-Relevanz")
 
-table(umf$Relevanz_Alltag)
-table(umf$Relevanz_Beruf)
-
 par(mfrow = c(3,2))
 #Legende dazu was 1 bis 6 bedeutet fehlt noch
 boxplot(nicht_statis$Relevanz_Beruf,
@@ -477,8 +474,8 @@ boxplot(statis$Relevanz_Studium,  ylim = c(1, 6),
 ##-THESEN-##
 matrix_plot_zustimmung <- matrix(matrix_plot_sort[c(10, 8, 9, 4, 7, 6, 3, 5, 2, 1),],
                                  ncol =  4)
-
-par(mar = c(c(5,7,3,1)))
+dev.off()
+par(mar = c(5,7,3,1))
 barplot(t(matrix_plot_zustimmung), horiz = TRUE, col = c("indianred4", "goldenrod",
                                 "darkseagreen3", "darkslategrey"),
                                 main = "gestapeltes Balkendiagramm",
@@ -486,8 +483,7 @@ barplot(t(matrix_plot_zustimmung), horiz = TRUE, col = c("indianred4", "goldenro
                             "traue_keiner", "zukunftsorientiert", "Angst",
                             "Berufsaussichten", "Infoquelle", "vielf_Anwendung"),
                 las = 2, axes = FALSE)
-
-legend(x = "bottom", inset = c(0, -0.2),
+5legend(x = "bottom", inset = c(0, -0.2),
               c("Stimme gar nicht zu", "Stimme eher nicht zu", "Stimme eher zu",
                   "Stimme voll zu"), xpd = TRUE, ncol = 2,
               fill = c("indianred4", "goldenrod", "darkseagreen3", "darkslategrey"),

@@ -507,4 +507,26 @@ legend("topright", legend = c("Statitiker", "Nicht-Statistiker"), fill = c("#1b9
 par(mar = c(8,3,3,3))
 barplot(t(eigeneWahr), col = c("#1b98e0", "#353436"), beside = TRUE, main = "Allgemeine Wahrnehmung des Faches Statistik", names.arg = c("negativ", "eher negativ", "neutral", "eher positiv", "positiv"), las = 2, ylim = c(0,0.7))
 legend("topright", legend = c("Statitiker", "Nicht-Statistiker"), fill = c("#1b98e0", "#353436"))
+#-------------------------------------------------------------------------------
+##-KORRELATIONSPLOT-##
+numeric_thesen <- sapply(thesen, as.numeric)
+numeric_thesen
+# Namen erstellen:
+M <- cor(na.omit(numeric_thesen))
+colnames(M) <- c("Tr_kS","Zuknftor","trocken","Berufaus","Angst","Infoquel","Maenner","Kreativ","Beweis","Anwendgeb")
+rownames(M) <- c("Tr_kS","Zuknftor","trocken","Berufaus","Angst","Infoquel","Maenner","Kreativ","Beweis","Anwendgeb")
 
+
+# Paket installieren:
+# install.packages("corrplot")
+library("corrplot")
+dev.off()
+# Verschiedene Methoden:
+corrplot( M , method="color", type="lower" , main = "Korrelationen der Zustimmung mehrerer Thesen", mar = c(1, 1, 4, 1),tl.cex = 1.5, cl.cex = 1.2 )
+# corrplot( M , method="color", type="full" )
+# corrplot( M , method="circle", type="full")
+# corrplot( M , method="pie", type="full")
+# corrplot( M , method="circle", type="lower")
+?corrplot
+
+dev.off()

@@ -495,7 +495,7 @@ legend(x = "bottom", inset = c(0, -0.2),
 dev.off()
 #-------------------------------------------------------------------------------
 ##-ASSOZIATIONEN & WAHRNEHMUNG-##
-
+Coloursceme <- rev(c("darkgreen", "chartreuse", "yellow", "orange", "red"))
 
 barplot(table(studi_fach_ohne_na[26])/sum(table(studi_fach_ohne_na[26])), col = Coloursceme, main = "Eigene Assoziation des Faches Statistik", ylim = c(0,0.7))
 barplot(table(studi_fach_ohne_na[27])/sum(table(studi_fach_ohne_na[27])), col = Coloursceme, main = "Allgemeine Wahrnehmung des Faches Statistik", ylim = c(0,0.7))

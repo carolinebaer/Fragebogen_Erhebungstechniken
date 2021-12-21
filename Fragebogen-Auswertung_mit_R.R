@@ -401,12 +401,16 @@ angekreuz_eig_nicht_statis
 colSums(angekreuz_eig_nicht_statis)
 angekreuz_eig_nicht_statis <- colSums(angekreuz_eig_nicht_statis)
 
-par(mfrow = c(1,2))
-barplot(angekreuz_eig_statis/18, col = "darkcyan", names.arg = names(angekreuz_eig), las = 2,
-        main = "Haeufigkeit der angekreuzten Eigenschaften", ylim = c(0, 1))
+matr <- matrix(c(angekreuz_eig_statis/18, angekreuz_eig_nicht_statis/50), ncol = 2)
+matr
 
-barplot(angekreuz_eig_nicht_statis/50, col = "darkcyan", names.arg = names(angekreuz_eig), las = 2,
-        main = "Haeufigkeit der angekreuzten Eigenschaften", ylim = c(0, 1))
+par(mar = c(9,4,4,1))
+barplot(t(matr), beside = TRUE, col = c("cadetblue4", "coral3"), ylim = c(0,1), 
+        main = "Haeufigkeit der angekreuzten Eigenschaften", las = 2,
+        names.arg = c(names(angekreuz_eig_statis)[1:7], "Zeitverschwendung",
+                      names(angekreuz_eig_statis)[9:10]))
+legend(x="topleft", c("Statistiker", "Nicht-Statistiker"), bty = "n",
+       fill = c("cadetblue4", "coral3"))
 
 #Eigenschaften-Abb2(Statistik vs. Nicht-Statistik)
 barplot(sort(angekreuz_eig_statis)/18, col = "darkcyan", 
@@ -462,4 +466,21 @@ boxplot(nicht_statis$Relevanz_Studium,
 boxplot(statis$Relevanz_Studium,  ylim = c(1, 6),
                 main = "Studiums-Relevanz (Statistiker)")
 #-------------------------------------------------------------------------------
+##-THESEN-##
+matrix_plot_zustimmung <- matrix(matrix_plot_sort[c(10, 8, 9, 4, 7, 6, 3, 5, 2, 1),],
+                                 ncol =  4)
 
+par(mar = c(c(5,7,3,1)))
+barplot(t(matrix_plot_zustimmung), horiz = TRUE, col = c("indianred4", "goldenrod",
+                                "darkseagreen3", "darkslategrey"),
+                                main = "gestapeltes Balkendiagramm",
+                names.arg = c("nur_Maenner", "Kreativitaet", "beweisen_nichts", "trocken",
+                            "traue_keiner", "zukunftsorientiert", "Angst",
+                            "Berufsaussichten", "Infoquelle", "vielf_Anwendung"),
+                las = 2, axes = FALSE)
+
+legend(x = "bottom", inset = c(0, -0.2),
+              c("Stimme gar nicht zu", "Stimme eher nicht zu", "Stimme eher zu",
+                  "Stimme voll zu"), xpd = TRUE, ncol = 2,
+              fill = c("indianred4", "goldenrod", "darkseagreen3", "darkslategrey"),
+              cex = 1)

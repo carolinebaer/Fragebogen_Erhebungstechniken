@@ -369,6 +369,7 @@ table(statis$Geschlecht)
 #_______________________________________________________________________________
 #Grafiken
 #_______________________________________________________________________________
+##-EIGENSCHAFTEN-##
 #Eigenschaften-Abb1
 par(mar = c(9,4,4,4))
 #8 Statis und 50 nicht-statis (laut workspace), daher 68 insgesamt
@@ -438,5 +439,27 @@ barplot(sort(angekreuz_eig_nicht_statis)/50, col = c(rep("darkcyan", 3), rep("br
 legend(x="topleft",c("positive Eigenschaften", "negative Eigenschaften"),
        fill = c("darkcyan", "brown4"), cex = 0.55, bty = "n")
 
-#dev.off()  zum Zurueckstellen von allen Raendern, etc.
+dev.off()  #zum Zurueckstellen von allen Raendern, etc.
+#-------------------------------------------------------------------------------
+##-RELEVANZ-##
+par(mfrow = c(3,2))
+#Legende dazu was 1 bis 6 bedeutet fehlt noch
+boxplot(nicht_statis$Relevanz_Beruf,
+            main = "Berufs-Relevanz (Nicht-Statistiker)")
+
+boxplot(statis$Relevanz_Beruf, ylim = c(1, 6),
+                main = "Berufs-Relevanz (Statistiker)")
+
+boxplot(nicht_statis$Relevanz_Alltag,
+                main = "Alltags-Relevanz (Nicht-Statistiker)")
+
+boxplot(statis$Relevanz_Alltag, ylim = c(1, 6),
+                main = "Alltag-Relevanz (Statistiker)")
+
+boxplot(nicht_statis$Relevanz_Studium,
+                main = "Studiums-Relevanz (Nicht-Statistiker)")
+
+boxplot(statis$Relevanz_Studium,  ylim = c(1, 6),
+                main = "Studiums-Relevanz (Statistiker)")
+#-------------------------------------------------------------------------------
 

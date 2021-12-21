@@ -244,5 +244,11 @@ table(statis$Geschlecht)
 
 #write.csv(umf, "Umfrage_Tabelle.csv")
 
-fac_statis <- sapply(statis, factor)
-str(fac_statis)
+statis[ ,c(3:15,26,27,30)] <- lapply( statis[ ,c(3:15,26,27,30)], factor) 
+# the "[]" keeps the dataframe structure
+str(statis)
+
+
+
+
+

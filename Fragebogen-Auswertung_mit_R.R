@@ -155,54 +155,22 @@ factor(umf[ ,8])
 
 #
 fac_umf26 <- as.factor(umf[ ,26])
-
 fac_umf26 <- fct_relevel(fac_umf26, "negativ", after = 0)
-
 umf[, 26] <- fct_relevel(fac_umf26, "neutral", after = 2)
-
 levels(umf[, 26])
 
-# [1] "negativ"      "eher negativ" "neutral"      "eher positiv"
-
-# [5] "positiv"
-
-
-
 fac_umf27 <- as.factor(umf[ ,27])
-
 fac_umf27 <- fct_relevel(fac_umf27, "negativ", after = 0)
-
 umf[, 27] <- fct_relevel(fac_umf27, "neutral", after = 2)
-
 levels(umf[, 27])
-
-# [1] "negativ"      "eher negativ" "neutral"      "eher positiv"
 
 levels(umf[, 27]) <- c(levels(umf[, 27]), "positiv")
-
 levels(umf[, 27])
 
-# [1] "negativ"      "eher negativ" "neutral"      "eher positiv"
-
-# [5] "positiv" 
-
-
-
 fac_umf30 <- as.factor(umf[ ,30])
-
 levels(fac_umf30)
-
 umf[,30]  <- fct_rev(fac_umf30)
-
 levels(umf[,30])
-
-# [1] "schlecht"     "nicht so gut" "mittelmäßig"  "ganz gut"   
-
-# [5] "bestens"
-
-
-
-
 
 
 
@@ -212,6 +180,8 @@ umf_ohne_freifeld <- umf[-c(2,28)] #____________________________________________
 #https://bjoernwalther.com/farben-in-r-der-col-befehl/
 
 thesen <- umf[3:12] #___________________________________________________________
+
+par(mfrow = c(1,1))
 
 thesen_stapel_barplot <- function(){
   thesen_plot <- matrix(0, nrow = 10, ncol = 4)

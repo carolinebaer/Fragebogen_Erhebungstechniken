@@ -289,9 +289,9 @@ plot(relevanz)
 
 #mit Kodierung: "absolut irrelevant" = 1,...,"ziemlich relevant" = 6
 table(relevanz$Relevanz_Beruf)
-kod_rel_beruf <- c( rep(1,3), rep(6, 4), rep(3,14), rep(4,27), rep(2,11), rep(5,12))
+kod_rel_beruf <- c( rep(1,3), rep(6, 15), rep(3,8), rep(4,22), rep(2,5), rep(5,18))
 mean(kod_rel_beruf)
-#[1] 3.647887
+#[1] 4.295775
 median(kod_rel_beruf)
 #[1] 4
 #dh. der Durchschnitt haelt Statistik fuer den Beruf fuer "eher irrelevant" bis
@@ -446,6 +446,14 @@ legend(x="topleft",c("positive Eigenschaften", "negative Eigenschaften"),
 dev.off()  #zum Zurueckstellen von allen Raendern, etc.
 #-------------------------------------------------------------------------------
 ##-RELEVANZ-##
+par(mfrow = c(1,3))
+boxplot(na.omit(umf$Relevanz_Beruf), main = "Berufs-Relevanz")
+boxplot(na.omit(umf$Relevanz_Studium), main = "Studiums-Relevanz")
+boxplot(na.omit(umf$Relevanz_Alltag), main = "Alltag-Relevanz")
+
+table(umf$Relevanz_Alltag)
+table(umf$Relevanz_Beruf)
+
 par(mfrow = c(3,2))
 #Legende dazu was 1 bis 6 bedeutet fehlt noch
 boxplot(nicht_statis$Relevanz_Beruf,
@@ -484,3 +492,19 @@ legend(x = "bottom", inset = c(0, -0.2),
                   "Stimme voll zu"), xpd = TRUE, ncol = 2,
               fill = c("indianred4", "goldenrod", "darkseagreen3", "darkslategrey"),
               cex = 1)
+dev.off()
+#-------------------------------------------------------------------------------
+##-ASSOZIATIONEN & WAHRNEHMUNG-##
+assoziation <- c(table(statis[26])/sum(table(statis[26])), table(nicht_statis[26])/sum(table(nicht_statis[26])))
+dim(assoziation) <- c(5,2)
+eigeneWahr <- c(table(statis[27])/sum(table(statis[27])), table(nicht_statis[27])/sum(table(nicht_statis[27])))
+dim(eigeneWahr) <- c(5,2)
+
+par(mar = c(8,3,3,3))
+barplot(t(assoziation), col = c("#1b98e0", "#353436"), beside = TRUE, main = "Eigene Assoziation des Faches Statistik", names.arg = c("negativ", "eher negativ", "neutral", "eher positiv", "positiv"), las = 2, ylim = c(0,0.7))
+legend("topright", legend = c("Statitiker", "Nicht-Statistiker"), fill = c("#1b98e0", "#353436"))
+
+par(mar = c(8,3,3,3))
+barplot(t(eigeneWahr), col = c("#1b98e0", "#353436"), beside = TRUE, main = "Allgemeine Wahrnehmung des Faches Statistik", names.arg = c("negativ", "eher negativ", "neutral", "eher positiv", "positiv"), las = 2, ylim = c(0,0.7))
+legend("topright", legend = c("Statitiker", "Nicht-Statistiker"), fill = c("#1b98e0", "#353436"))
+

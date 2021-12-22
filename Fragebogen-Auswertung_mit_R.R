@@ -379,11 +379,11 @@ barplot(angekreuz_eig/68, col = "darkcyan",
 #Eigenschaften-Abb2
 barplot(sort(angekreuz_eig/68), col = "darkcyan", 
         names.arg = c("Zeitverschwendung",names(sort(angekreuz_eig))[-1]),
-        las = 2, main = "Haeufigkeit der angekreuzten Eigenschaften", ylim = c(0,1))
+        las = 2, main = "(sortierte) Haeufigkeit der angekreuzten Eigenschaften", ylim = c(0,1))
 #Eigenschaften-Abb3
 barplot(sort(angekreuz_eig/68), col = c(rep("darkcyan", 3), rep("brown4", 3), 
                                      "darkcyan", rep("brown4", 2), "darkcyan"), 
-        main = "Haeufigkeit der angekreuzten Eigenschaften", 
+        main = "(sortierte) Haeufigkeit der angekreuzten Eigenschaften", 
         names.arg = c("Zeitverschwendung",names(sort(angekreuz_eig))[-1]), las = 2, ylim = c(0,1))
 legend(x="topleft",c("positive Eigenschaften", "negative Eigenschaften"),
        fill = c("darkcyan", "brown4"), bty = "n")
@@ -413,6 +413,7 @@ legend(x="topleft", c("Statistiker", "Nicht-Statistiker"), bty = "n",
        fill = c("cadetblue4", "coral3"))
 
 #Eigenschaften-Abb2(Statistik vs. Nicht-Statistik)
+par(mfrow = c(1,2))
 barplot(sort(angekreuz_eig_statis)/18, col = "darkcyan", 
         names.arg = c(names(sort(angekreuz_eig_statis))[1], 
                       "Zeitverschwendung",names(sort(angekreuz_eig_statis))[3:10]),
@@ -430,7 +431,7 @@ par(mar = c(9, 4,4,4))
 barplot(sort(angekreuz_eig_statis)/18, col = c(rep("darkcyan", 3), rep("brown4", 3), 
                                      "darkcyan", rep("brown4", 2), "darkcyan"), 
         main = "Haeufigkeit der angekreuzten Eigenschaften-Statis", 
-        names.arg = c("Zeitverschwendung",names(sort(angekreuz_eig_statis))[-1]), 
+        names.arg = c(names(sort(angekreuz_eig_statis))[1] ,"Zeitverschwendung",names(sort(angekreuz_eig_statis))[3:10]), 
         las = 2, ylim = c(0,1))
 legend(x="topleft",c("positive Eigenschaften", "negative Eigenschaften"),
        fill = c("darkcyan", "brown4"), cex = 0.55, bty = "n")
@@ -475,26 +476,30 @@ boxplot(statis$Relevanz_Studium,  ylim = c(1, 6),
 matrix_plot_zustimmung <- matrix(matrix_plot_sort[c(10, 8, 9, 4, 7, 6, 3, 5, 2, 1),],
                                  ncol =  4)
 dev.off()
-par(mar = c(5,7,3,1))
+par(mar = c(5,8,3,1))
 barplot(t(matrix_plot_zustimmung), horiz = TRUE, col = c("indianred4", "goldenrod",
                                 "darkseagreen3", "darkslategrey"),
-                                main = "gestapeltes Balkendiagramm",
+                                main = "Zustimmung zu den Thesen",
                 names.arg = c("nur_Maenner", "Kreativitaet", "beweisen_nichts", "trocken",
                             "traue_keiner", "zukunftsorientiert", "Angst",
                             "Berufsaussichten", "Infoquelle", "vielf_Anwendung"),
                 las = 2, axes = FALSE)
-5legend(x = "bottom", inset = c(0, -0.2),
+legend(x = "bottom", inset = c(0, -0.15),
               c("Stimme gar nicht zu", "Stimme eher nicht zu", "Stimme eher zu",
                   "Stimme voll zu"), xpd = TRUE, ncol = 2,
               fill = c("indianred4", "goldenrod", "darkseagreen3", "darkslategrey"),
-              cex = 1)
+              cex = 1, bty = "n")
 dev.off()
 #-------------------------------------------------------------------------------
 ##-ASSOZIATIONEN & WAHRNEHMUNG-##
 Coloursceme <- rev(c("darkgreen", "chartreuse", "yellow", "orange", "red"))
 
-barplot(table(studi_fach_ohne_na[26])/sum(table(studi_fach_ohne_na[26])), col = Coloursceme, main = "Eigene Assoziation des Faches Statistik", ylim = c(0,0.7))
-barplot(table(studi_fach_ohne_na[27])/sum(table(studi_fach_ohne_na[27])), col = Coloursceme, main = "Allgemeine Wahrnehmung des Faches Statistik", ylim = c(0,0.7))
+barplot(table(studi_fach_ohne_na[26])/sum(table(studi_fach_ohne_na[26])), 
+        col = Coloursceme, main = "Eigene Assoziation des Faches Statistik", 
+        ylim = c(0,0.7))
+barplot(table(studi_fach_ohne_na[27])/sum(table(studi_fach_ohne_na[27])), 
+        col = Coloursceme, main = "Eigene Annahme zur allgemeinen Wahrnehmung des Faches Statistik", 
+        ylim = c(0,0.7))
 
 assoziation <- c(table(statis[26])/sum(table(statis[26])), table(nicht_statis[26])/sum(table(nicht_statis[26])))
 dim(assoziation) <- c(5,2)
@@ -503,11 +508,13 @@ dim(eigeneWahr) <- c(5,2)
 
 par(mar = c(8,3,3,3))
 barplot(t(assoziation), col = c("#1b98e0", "#353436"), beside = TRUE, main = "Eigene Assoziation des Faches Statistik", names.arg = c("negativ", "eher negativ", "neutral", "eher positiv", "positiv"), las = 2, ylim = c(0,0.7))
-legend("topright", legend = c("Statitiker", "Nicht-Statistiker"), fill = c("#1b98e0", "#353436"))
+legend("topleft", legend = c("Statistiker", "Nicht-Statistiker"), 
+       fill = c("#1b98e0", "#353436"), bty = "n")
 
 par(mar = c(8,3,3,3))
 barplot(t(eigeneWahr), col = c("#1b98e0", "#353436"), beside = TRUE, main = "Allgemeine Wahrnehmung des Faches Statistik", names.arg = c("negativ", "eher negativ", "neutral", "eher positiv", "positiv"), las = 2, ylim = c(0,0.7))
-legend("topright", legend = c("Statitiker", "Nicht-Statistiker"), fill = c("#1b98e0", "#353436"))
+legend("topright", legend = c("Statistiker", "Nicht-Statistiker"), 
+       fill = c("#1b98e0", "#353436"), bty = "n")
 #-------------------------------------------------------------------------------
 ##-KORRELATIONSPLOT-##
 numeric_thesen <- sapply(thesen, as.numeric)
@@ -516,7 +523,6 @@ numeric_thesen
 M <- cor(na.omit(numeric_thesen))
 colnames(M) <- c("Tr_kS","Zuknftor","trocken","Berufaus","Angst","Infoquel","Maenner","Kreativ","Beweis","Anwendgeb")
 rownames(M) <- c("Tr_kS","Zuknftor","trocken","Berufaus","Angst","Infoquel","Maenner","Kreativ","Beweis","Anwendgeb")
-
 
 # Paket installieren:
 # install.packages("corrplot")

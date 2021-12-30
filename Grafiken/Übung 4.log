@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.9.19)  30 DEC 2021 18:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.9.19)  30 DEC 2021 18:51
 entering extended mode
 **"./Übung 4.tex"
 (Übung 4.tex
@@ -649,22 +649,22 @@ Overfull \hbox (0.1678pt too wide) in paragraph at lines 27--29
 [][]
  []
 
-<sort_pos_neg_Hfgkeit_angekreuzter_Eigenschaften.png, id=3, 747.54282pt x 601.4
-972pt>
+<sort_pos_neg_Hfgkeit_angekreuzter_Eigenschaften.png, id=3, 1004.25188pt x 627.
+09282pt>
 File: sort_pos_neg_Hfgkeit_angekreuzter_Eigenschaften.png Graphic file (type pn
 g)
 <use sort_pos_neg_Hfgkeit_angekreuzter_Eigenschaften.png>
 Package pdftex.def Info: sort_pos_neg_Hfgkeit_angekreuzter_Eigenschaften.png  u
 sed on input line 32.
-(pdftex.def)             Requested size: 373.7705pt x 300.74786pt.
-<(nicht)-statis_sort_pos_neg_Hfgkeit_angekreuzter_Eigenschaften.png, id=4, 779.
-91376pt x 595.47469pt>
+(pdftex.def)             Requested size: 482.03543pt x 301.00113pt.
+<(nicht)-statis_sort_pos_neg_Hfgkeit_angekreuzter_Eigenschaften.png, id=4, 1011
+.78pt x 628.59843pt>
 File: (nicht)-statis_sort_pos_neg_Hfgkeit_angekreuzter_Eigenschaften.png Graphi
 c file (type png)
 <use (nicht)-statis_sort_pos_neg_Hfgkeit_angekreuzter_Eigenschaften.png>
 Package pdftex.def Info: (nicht)-statis_sort_pos_neg_Hfgkeit_angekreuzter_Eigen
 schaften.png  used on input line 34.
-(pdftex.def)             Requested size: 389.95593pt x 297.7366pt.
+(pdftex.def)             Requested size: 505.88876pt x 314.29845pt.
 <(nicht)-statis_Hfgkeit_angekreuzter_Eigenschaften.png, id=5, 760.34062pt x 598
 .48593pt>
 File: (nicht)-statis_Hfgkeit_angekreuzter_Eigenschaften.png Graphic file (type 
@@ -673,6 +673,16 @@ png)
 Package pdftex.def Info: (nicht)-statis_Hfgkeit_angekreuzter_Eigenschaften.png 
  used on input line 36.
 (pdftex.def)             Requested size: 380.16937pt x 299.24223pt.
+
+Overfull \hbox (33.90448pt too wide) in paragraph at lines 32--37
+[][] 
+ []
+
+
+Overfull \hbox (57.75781pt too wide) in paragraph at lines 32--37
+[] 
+ []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 32--37
 
@@ -684,17 +694,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--37
 arplot_Thesen.png> <./sort_pos_neg_Hfgkeit_angekreuzter_Eigenschaften.png>]
 [2 <./(nicht)-statis_sort_pos_neg_Hfgkeit_angekreuzter_Eigenschaften.png> <./(n
 icht)-statis_Hfgkeit_angekreuzter_Eigenschaften.png>]
-<3_boxplots_relevanz.png, id=18, 855.195pt x 576.65437pt>
+<3_boxplots_relevanz.png, id=18, 1014.79124pt x 572.1375pt>
 File: 3_boxplots_relevanz.png Graphic file (type png)
 <use 3_boxplots_relevanz.png>
 Package pdftex.def Info: 3_boxplots_relevanz.png  used on input line 40.
-(pdftex.def)             Requested size: 427.59647pt x 288.32648pt.
-<(nicht)-statis_boxplots_Relevanz.png, id=19, 851.43094pt x 590.205pt>
+(pdftex.def)             Requested size: 497.25206pt x 280.34982pt.
+<(nicht)-statis_boxplots_Relevanz.png, id=19, 1013.28563pt x 614.295pt>
 File: (nicht)-statis_boxplots_Relevanz.png Graphic file (type png)
 <use (nicht)-statis_boxplots_Relevanz.png>
 Package pdftex.def Info: (nicht)-statis_boxplots_Relevanz.png  used on input li
 ne 42.
-(pdftex.def)             Requested size: 425.71443pt x 295.10178pt.
+(pdftex.def)             Requested size: 496.51431pt x 301.00717pt.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4
 3.
 
@@ -741,17 +751,27 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (C:\Users\baer-\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
+Overfull \hbox (49.12111pt too wide) in paragraph at lines 40--44
+[][] 
+ []
+
+
+Overfull \hbox (48.38336pt too wide) in paragraph at lines 40--44
+[] 
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 40--44
 
  []
 
 [3 <./3_boxplots_relevanz.png> <./(nicht)-statis_boxplots_Relevanz.png>]
-<barplot_Assoziation.png, id=25, 880.03781pt x 590.95781pt>
+<barplot_Assoziation.png, id=27, 880.03781pt x 590.95781pt>
 File: barplot_Assoziation.png Graphic file (type png)
 <use barplot_Assoziation.png>
 Package pdftex.def Info: barplot_Assoziation.png  used on input line 48.
 (pdftex.def)             Requested size: 264.01338pt x 177.2887pt.
-<(nicht)-statis_barplot_Assoziation.png, id=26, 862.72313pt x 587.94656pt>
+<(nicht)-statis_barplot_Assoziation.png, id=28, 862.72313pt x 587.94656pt>
 File: (nicht)-statis_barplot_Assoziation.png Graphic file (type png)
 <use (nicht)-statis_barplot_Assoziation.png>
 Package pdftex.def Info: (nicht)-statis_barplot_Assoziation.png  used on input 
@@ -767,12 +787,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--50
 
  []
 
-<barplot_Wahrnehmung.png, id=27, 887.56593pt x 584.93532pt>
+<barplot_Wahrnehmung.png, id=29, 887.56593pt x 584.93532pt>
 File: barplot_Wahrnehmung.png Graphic file (type png)
 <use barplot_Wahrnehmung.png>
 Package pdftex.def Info: barplot_Wahrnehmung.png  used on input line 54.
 (pdftex.def)             Requested size: 266.27184pt x 175.48195pt.
-<(nicht)-statis_barplot_Wahrnehmung.png, id=28, 883.04906pt x 596.2275pt>
+<(nicht)-statis_barplot_Wahrnehmung.png, id=30, 883.04906pt x 596.2275pt>
 File: (nicht)-statis_barplot_Wahrnehmung.png Graphic file (type png)
 <use (nicht)-statis_barplot_Wahrnehmung.png>
 Package pdftex.def Info: (nicht)-statis_barplot_Wahrnehmung.png  used on input 
@@ -792,21 +812,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--56
 rplot_Wahrnehmung.png> <./(nicht)-statis_barplot_Wahrnehmung.png>]
 (Übung 4.aux) ) 
 Here is how much of TeX's memory you used:
- 10948 strings out of 478863
- 195324 string characters out of 2848699
+ 10959 strings out of 478863
+ 195461 string characters out of 2848699
  681262 words of memory out of 3000000
- 28679 multiletter control sequences out of 15000+600000
- 427017 words of font info for 62 fonts, out of 8000000 for 9000
+ 28681 multiletter control sequences out of 15000+600000
+ 430323 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,8n,108p,10634b,270s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 108i,8n,108p,10634b,302s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/baer-/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/l
-m/lm-rm.enc}{C:/Users/baer-/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm
--ec.enc}<C:/Users/baer-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr
-12.pfb><C:/Users/baer-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6
-.pfb>
-Output written on "Übung 4.pdf" (4 pages, 875571 bytes).
+m/lm-ec.enc}{C:/Users/baer-/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm
+-rm.enc}<C:/Users/baer-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr
+10.pfb><C:/Users/baer-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr1
+2.pfb><C:/Users/baer-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.
+pfb>
+Output written on "Übung 4.pdf" (4 pages, 924447 bytes).
 PDF statistics:
- 51 PDF objects out of 1000 (max. 8388607)
+ 56 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 12339 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 14387 words of extra memory for PDF output out of 14400 (max. 10000000)
 

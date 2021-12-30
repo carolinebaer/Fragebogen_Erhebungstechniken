@@ -376,13 +376,16 @@ par(mar = c(9,4,4,4))
 barplot(angekreuz_eig/68, col = "darkcyan", 
     names.arg = c(names(angekreuz_eig)[1:7],"Zeitverschwendung",names(angekreuz_eig)[9:10]), 
         las = 2, main = "Haeufigkeit der angekreuzten Eigenschaften", ylim = c(0,1))
+
 #Eigenschaften-Abb2
 barplot(sort(angekreuz_eig/68), col = "darkcyan", 
         names.arg = c("Zeitverschwendung",names(sort(angekreuz_eig))[-1]),
         las = 2, main = "(sortierte) Haeufigkeit der angekreuzten Eigenschaften", ylim = c(0,1))
+
 #Eigenschaften-Abb3
-barplot(sort(angekreuz_eig/68), col = c(rep("darkcyan", 3), rep("brown4", 3), 
-                                     "darkcyan", rep("brown4", 2), "darkcyan"), 
+barplot(sort(angekreuz_eig/68), col = c("brown4", rep("darkcyan", 1), 
+                    rep("brown4", 1), rep("darkcyan",3), rep("brown4", 2), 
+                    "darkcyan", "brown4"), 
         main = "(sortierte) Haeufigkeit der angekreuzten Eigenschaften", 
         names.arg = c("Zeitverschwendung",names(sort(angekreuz_eig))[-1]), las = 2, ylim = c(0,1))
 legend(x="topleft",c("positive Eigenschaften", "negative Eigenschaften"),
@@ -428,16 +431,16 @@ barplot(sort(angekreuz_eig_nicht_statis)/50, col = "darkcyan",
 #Eigenschaften-Abb3(Statistik vs. Nicht-Statistik)
 par(mfrow = c(1,2))
 par(mar = c(9, 4,4,4))
-barplot(sort(angekreuz_eig_statis)/18, col = c(rep("darkcyan", 3), rep("brown4", 3), 
-                                     "darkcyan", rep("brown4", 2), "darkcyan"), 
+barplot(sort(angekreuz_eig_statis)/18, col = c(rep("brown4",2) ,rep("darkcyan", 1), 
+                rep("brown4", 1), "darkcyan", rep("brown4", 2), rep("darkcyan",3)), 
         main = "Haeufigkeit der angekreuzten Eigenschaften-Statis", 
         names.arg = c(names(sort(angekreuz_eig_statis))[1] ,"Zeitverschwendung",names(sort(angekreuz_eig_statis))[3:10]), 
         las = 2, ylim = c(0,1))
 legend(x="topleft",c("positive Eigenschaften", "negative Eigenschaften"),
        fill = c("darkcyan", "brown4"), cex = 0.55, bty = "n")
 
-barplot(sort(angekreuz_eig_nicht_statis)/50, col = c(rep("darkcyan", 3), rep("brown4", 3), 
-                                     "darkcyan", rep("brown4", 2), "darkcyan"), 
+barplot(sort(angekreuz_eig_nicht_statis)/50, col = c(rep("brown4", 1), 
+               rep("darkcyan", 3), rep("brown4", 1), rep("darkcyan",2), rep("brown4", 3)), 
         main = "Haeufigkeit der angekreuzten Eigenschaften-Nicht-Statis", 
         names.arg = c("Zeitverschwendung",names(sort(angekreuz_eig_nicht_statis))[-1]), 
         las = 2, ylim = c(0,1))
@@ -448,29 +451,30 @@ dev.off()  #zum Zurueckstellen von allen Raendern, etc.
 #-------------------------------------------------------------------------------
 ##-RELEVANZ-##
 par(mfrow = c(1,3))
-boxplot(na.omit(umf$Relevanz_Beruf), main = "Berufs-Relevanz")
-boxplot(na.omit(umf$Relevanz_Studium), main = "Studiums-Relevanz")
-boxplot(na.omit(umf$Relevanz_Alltag), main = "Alltag-Relevanz")
+par(mar = c(9,3,9,3))
+boxplot(na.omit(umf$Relevanz_Beruf), main = "Berufs-Relevanz", col = "lightblue")
+boxplot(na.omit(umf$Relevanz_Studium), main = "Studiums-Relevanz", col = "lightblue")
+boxplot(na.omit(umf$Relevanz_Alltag), main = "Alltag-Relevanz", col = "lightblue")
 
 par(mfrow = c(3,2))
 #Legende dazu was 1 bis 6 bedeutet fehlt noch
 boxplot(nicht_statis$Relevanz_Beruf,
-            main = "Berufs-Relevanz (Nicht-Statistiker)")
+            main = "Berufs-Relevanz (Nicht-Statistiker)", col = "lightblue")
 
 boxplot(statis$Relevanz_Beruf, ylim = c(1, 6),
-                main = "Berufs-Relevanz (Statistiker)")
+                main = "Berufs-Relevanz (Statistiker)", col = "lightblue")
 
 boxplot(nicht_statis$Relevanz_Alltag,
-                main = "Alltags-Relevanz (Nicht-Statistiker)")
+                main = "Alltags-Relevanz (Nicht-Statistiker)", col = "lightblue")
 
 boxplot(statis$Relevanz_Alltag, ylim = c(1, 6),
-                main = "Alltag-Relevanz (Statistiker)")
+                main = "Alltag-Relevanz (Statistiker)", col = "lightblue")
 
 boxplot(nicht_statis$Relevanz_Studium,
-                main = "Studiums-Relevanz (Nicht-Statistiker)")
+                main = "Studiums-Relevanz (Nicht-Statistiker)", col = "lightblue")
 
 boxplot(statis$Relevanz_Studium,  ylim = c(1, 6),
-                main = "Studiums-Relevanz (Statistiker)")
+                main = "Studiums-Relevanz (Statistiker)", col = "lightblue")
 #-------------------------------------------------------------------------------
 ##-THESEN-##
 matrix_plot_zustimmung <- matrix(matrix_plot_sort[c(10, 8, 9, 4, 7, 6, 3, 5, 2, 1),],

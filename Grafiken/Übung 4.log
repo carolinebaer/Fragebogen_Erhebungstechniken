@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.9.19)  30 DEC 2021 17:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.9.19)  30 DEC 2021 18:10
 entering extended mode
 **"./Übung 4.tex"
 (Übung 4.tex
@@ -695,8 +695,53 @@ File: (nicht)-statis_boxplots_Relevanz.png Graphic file (type png)
 Package pdftex.def Info: (nicht)-statis_boxplots_Relevanz.png  used on input li
 ne 42.
 (pdftex.def)             Requested size: 425.71443pt x 295.10178pt.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4
+3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--43
+(C:\Users\baer-\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4
+3.
+
+(C:\Users\baer-\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+43.
+
+(C:\Users\baer-\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+43.
+
+(C:\Users\baer-\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 43.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 43.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
+
+
+(C:\Users\baer-\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+(C:\Users\baer-\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
+
+
+(C:\Users\baer-\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+(C:\Users\baer-\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+Underfull \hbox (badness 10000) in paragraph at lines 40--44
 
  []
 
@@ -704,42 +749,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--43
 <barplot_Assoziation.png, id=25, 880.03781pt x 590.95781pt>
 File: barplot_Assoziation.png Graphic file (type png)
 <use barplot_Assoziation.png>
-Package pdftex.def Info: barplot_Assoziation.png  used on input line 47.
+Package pdftex.def Info: barplot_Assoziation.png  used on input line 48.
 (pdftex.def)             Requested size: 264.01338pt x 177.2887pt.
 <(nicht)-statis_barplot_Assoziation.png, id=26, 862.72313pt x 587.94656pt>
 File: (nicht)-statis_barplot_Assoziation.png Graphic file (type png)
 <use (nicht)-statis_barplot_Assoziation.png>
 Package pdftex.def Info: (nicht)-statis_barplot_Assoziation.png  used on input 
-line 48.
+line 49.
 (pdftex.def)             Requested size: 258.81894pt x 176.38533pt.
 
-Overfull \hbox (23.018pt too wide) in paragraph at lines 46--49
+Overfull \hbox (23.018pt too wide) in paragraph at lines 47--50
 []  [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 46--49
+Underfull \hbox (badness 10000) in paragraph at lines 47--50
 
  []
 
 <barplot_Wahrnehmung.png, id=27, 887.56593pt x 584.93532pt>
 File: barplot_Wahrnehmung.png Graphic file (type png)
 <use barplot_Wahrnehmung.png>
-Package pdftex.def Info: barplot_Wahrnehmung.png  used on input line 53.
+Package pdftex.def Info: barplot_Wahrnehmung.png  used on input line 54.
 (pdftex.def)             Requested size: 266.27184pt x 175.48195pt.
 <(nicht)-statis_barplot_Wahrnehmung.png, id=28, 883.04906pt x 596.2275pt>
 File: (nicht)-statis_barplot_Wahrnehmung.png Graphic file (type png)
 <use (nicht)-statis_barplot_Wahrnehmung.png>
 Package pdftex.def Info: (nicht)-statis_barplot_Wahrnehmung.png  used on input 
-line 54.
+line 55.
 (pdftex.def)             Requested size: 264.91675pt x 178.86963pt.
 
-Overfull \hbox (31.37427pt too wide) in paragraph at lines 52--55
+Overfull \hbox (31.37427pt too wide) in paragraph at lines 53--56
 []  [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--55
+Underfull \hbox (badness 10000) in paragraph at lines 53--56
 
  []
 
@@ -747,19 +792,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--55
 rplot_Wahrnehmung.png> <./(nicht)-statis_barplot_Wahrnehmung.png>]
 (Übung 4.aux) ) 
 Here is how much of TeX's memory you used:
- 10759 strings out of 478863
- 191329 string characters out of 2848699
- 680262 words of memory out of 3000000
- 28562 multiletter control sequences out of 15000+600000
- 407673 words of font info for 32 fonts, out of 8000000 for 9000
+ 10948 strings out of 478863
+ 195324 string characters out of 2848699
+ 681262 words of memory out of 3000000
+ 28679 multiletter control sequences out of 15000+600000
+ 427017 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,8n,108p,10634b,270s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/baer-/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/l
-m/lm-ec.enc}<C:/Users/baer-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm
-/lmr12.pfb>
-Output written on "Übung 4.pdf" (4 pages, 840133 bytes).
+m/lm-rm.enc}{C:/Users/baer-/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm
+-ec.enc}<C:/Users/baer-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr
+12.pfb><C:/Users/baer-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6
+.pfb>
+Output written on "Übung 4.pdf" (4 pages, 875571 bytes).
 PDF statistics:
- 42 PDF objects out of 1000 (max. 8388607)
+ 51 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 2099 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 12339 words of extra memory for PDF output out of 14400 (max. 10000000)
 

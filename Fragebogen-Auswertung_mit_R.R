@@ -181,63 +181,7 @@ umf_ohne_freifeld <- umf[-c(2,28)] #____________________________________________
 
 thesen <- umf[3:12] #___________________________________________________________
 
-par(mfrow = c(1,1))
-#dev.off()  zum Zurueckstellen von allen Raendern, etc.
-
-thesen_stapel_barplot <- function(){
-  thesen_plot <- matrix(0, nrow = 10, ncol = 4)
-  for(i in 1:10){
-    setz <- table(thesen[i])
-    thesen_plot[i,1] <- setz[3]
-    thesen_plot[i,2] <- setz[1]
-    thesen_plot[i,3] <- setz[2]
-    thesen_plot[i,4] <- setz[4]
-  }
-  return(thesen_plot)
-}
-
-matrix_plot <- thesen_stapel_barplot()
-matrix_plot[7,4] <- 0  #da, "stimme voll zu" von niemanden angekreuzt wurde 
-barplot(t(matrix_plot), horiz = TRUE, col = c("indianred4", "goldenrod", 
-        "darkseagreen3", "darkslategrey"), main = "gestapeltes Balkendiagramm",
-        names.arg = c("traue_keiner", "zukunftsorientiert", "trocken",
-                      "Berufsaussichten", "Angst", "Infoquelle",
-                      "nur_Maenner", "Kreativitaet", "beweisen_nichts",
-                      "vielf_Anwendung"), las = 2, axes = FALSE,
-        legend.text = c("Stimme gar nicht zu", "Stimme eher nicht zu",
-                        "Stimme eher zu", "Stimme voll zu"))
-#C: Text der Balken noch abgeschnitten -> Raender vermtulich noch aendern
-#C: die Legende muss auﬂerhalb des Diagramms
-#C: eine Sortierung nach rot oder dunkelgruen waere ausserdem noch schoen
-
-
-#C: sortiertes Balkendiagramm (nach "stimme gar nicht zu")
-sort(matrix_plot[,1])
-# [1]  1  1  2  2  3  5  6 20 27 42
-matrix_plot_sort <- matrix(c(matrix_plot[10,], matrix_plot[6,], matrix_plot[5,],
-                             matrix_plot[3,], matrix_plot[4,], matrix_plot[2,],
-                             matrix_plot[1,], matrix_plot[8,], matrix_plot[9,],
-                             matrix_plot[7,]), nrow = 10, byrow = TRUE)
-matrix_plot_sort
-
 #Raender: c(unten, links, oben, rechts)
-#opar <- par(no.readonly = TRUE)  ##sollte eig urspungszustand wiederherstellen
-
-par(mar = c(4,7.5,3,1)) #Raender einstellen, damit nichts abgeschnitten ist
-barplot(t(matrix_plot_sort), horiz = TRUE, col = c("indianred4", "goldenrod", 
-                                "darkseagreen3", "darkslategrey"), 
-        main = "gestapeltes Balkendiagramm",
-        names.arg = c("vielf_Anwendung", "Infoquelle", "Angst", "trocken", 
-                      "Berufsaussichten", "zukunftsorientiert", "traue_keiner", 
-                      "Kreativitaet", "beweisen_nichts", "nur_Maenner"), 
-        las = 2, axes = FALSE)
-legend(x = "bottom", inset = c(0, -0.2), 
-       c("Stimme gar nicht zu", "Stimme eher nicht zu", "Stimme eher zu", 
-         "Stimme voll zu"), xpd = TRUE, ncol = 2, 
-       fill = c("indianred4", "goldenrod", "darkseagreen3", "darkslategrey"), 
-       cex = 1)
-#on.exit(par(opar))
-
 
 
 eigenschaften <- umf[16:25] #___________________________________________________
@@ -477,35 +421,6 @@ boxplot(statis$Relevanz_Studium,  ylim = c(1, 6),
                 main = "Studiums-Relevanz (Statistiker)", col = "lightblue")
 #-------------------------------------------------------------------------------
 ##-THESEN-##
-matrix_plot_zustimmung <- matrix(matrix_plot_sort[c(10, 8, 9, 4, 7, 6, 3, 5, 2, 1),],
-                                 ncol =  4)
-dev.off()
-par(mar = c(5,8,3,1))
-barplot(t(matrix_plot_zustimmung), horiz = TRUE, col = c("indianred4", "goldenrod",
-                                "darkseagreen3", "darkslategrey"),
-                                main = "Zustimmung zu den Thesen",
-                names.arg = c("nur_Maenner", "Kreativitaet", "beweisen_nichts", "trocken",
-                            "traue_keiner", "zukunftsorientiert", "Angst",
-                            "Berufsaussichten", "Infoquelle", "vielf_Anwendung"),
-                las = 2, axes = FALSE)
-legend(x = "bottom", inset = c(0, -0.15),
-              c("Stimme gar nicht zu", "Stimme eher nicht zu", "Stimme eher zu",
-                  "Stimme voll zu"), xpd = TRUE, ncol = 2,
-              fill = c("indianred4", "goldenrod", "darkseagreen3", "darkslategrey"),
-              cex = 1, bty = "n")
-dev.off()
-
-
-
-##########################????????????????????????####################################################################
-# PROBLEM/MERKWUERDIG:
-table(umf$nur_Maenner)
-# Es haben 42 "stimme gar nicht zu" angekreuzt, das ist bezueglich der 71 Antworten (ohne NAs)
-# mehr als die Haelfte ( 0.59 ) der Antworten. Aber der rote Balken fuer "stimme gar nicht zu" ist viel
-# zu klein.
-# Ich glaube da ist nur irgendetwas vertauscht, weil die dunkelgruenen Balken/die Sortierung richtig ist.
-# Aber habe den Fehler jetzt noch nicht gefunden :D
-
 
 # Hier habe ich es auch nochmal mit den Werten von prop.table verglichen:
 
@@ -529,7 +444,8 @@ umf$nur_Maenner
 # Es gibt bei allen Thesen 53 NAs:
 summary(thesen)
 
-# Habe versucht nochmal einen gestapelten barplot zu machen. Habe das aber etwas anders gemacht.
+# Habe versucht nochmal einen gestapelten barplot zu machen. Habe das aber etwas 
+# anders gemacht.
 
 # Zuerst neuen data.frame aufstellen mit etwas anderer Struktur:
 These <- c( rep("Traue_keiner_Statistik",124), rep("zukunftsorientiert",124),rep("trocken",124),rep("gute_Berufaussichten",124),
@@ -569,23 +485,18 @@ sortiert <- t[,x]
 sortiert
 
 # Barplot sortiert und mit relativen Werten.
-# Aber die Legende funktioniert noch nicht , kollidiert mit der x-Achse
-par(mar = c(5,8,3,1))
+
+par(mar = c(12,8,4,4))
 barplot( sortiert , horiz = TRUE,  col = c("indianred4", "goldenrod","darkseagreen3", "darkslategrey"),
          names.arg = c("nur_Maenner", "Kreativit‰t", "beweisen_nichts","trocken","traue_keiner",
                        "zukunftsorientiert","Angst","Berufsaussichten","Infoquelle","vielf_Anwendung"), las =2,
          main = "Zustimmung der einzelnen Thesen")
-legend(x = "bottom", inset = c(0, -0.2), 
+legend(x = "bottom", inset = c(0, -0.4), 
        c("Stimme gar nicht zu", "Stimme eher nicht zu", "Stimme eher zu", 
          "Stimme voll zu"), xpd = TRUE, ncol = 2, 
        fill = c("indianred4", "goldenrod", "darkseagreen3", "darkslategrey"), 
-       cex = 1)
-
-#########################????????????????????????????????????????????????????#########################################
-
-
-
-
+       cex = 0.7)
+?barplot
 
 
 #-------------------------------------------------------------------------------

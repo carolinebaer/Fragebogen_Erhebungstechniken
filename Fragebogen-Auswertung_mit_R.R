@@ -494,6 +494,100 @@ legend(x = "bottom", inset = c(0, -0.15),
               fill = c("indianred4", "goldenrod", "darkseagreen3", "darkslategrey"),
               cex = 1, bty = "n")
 dev.off()
+
+
+
+##########################????????????????????????####################################################################
+# PROBLEM/MERKWUERDIG:
+table(umf$nur_Maenner)
+# Es haben 42 "stimme gar nicht zu" angekreuzt, das ist bezueglich der 71 Antworten (ohne NAs)
+# mehr als die Haelfte ( 0.59 ) der Antworten. Aber der rote Balken fuer "stimme gar nicht zu" ist viel
+# zu klein.
+# Ich glaube da ist nur irgendetwas vertauscht, weil die dunkelgruenen Balken/die Sortierung richtig ist.
+# Aber habe den Fehler jetzt noch nicht gefunden :D
+
+
+# Hier habe ich es auch nochmal mit den Werten von prop.table verglichen:
+
+# Wichtig: prop.table berechnet die Prozentwerte in dem es durch die Laenge der Spalte
+# OHNE NAs teilt. So muesste man das dann auch im plot tun.
+
+# table durch die Leange teilen(mit Nas):
+table(umf$nur_Maenner)/length(umf$nur_Maenner)
+# table durch die Laenge teilen (ohne NAs):
+table(umf$nur_Maenner)/71
+# wird auch so bei prop.table gemacht:
+prop.table(table(umf$nur_Maenner))
+
+length(umf$nur_Maenner)
+#[1] 124
+length(na.omit(umf$nur_Maenner))
+#[1] 71
+na.omit(umf$nur_Maenner)
+umf$nur_Maenner
+
+# Es gibt bei allen Thesen 53 NAs:
+summary(thesen)
+
+# Habe versucht nochmal einen gestapelten barplot zu machen. Habe das aber etwas anders gemacht.
+
+# Zuerst neuen data.frame aufstellen mit etwas anderer Struktur:
+These <- c( rep("Traue_keiner_Statistik",124), rep("zukunftsorientiert",124),rep("trocken",124),rep("gute_Berufaussichten",124),
+            rep("Angst",124), rep("wichtige_Informationsquelle",124),rep("nur_Maenner",124), rep("Kreativitaet",124),
+            rep("beweisen_nichts",124), rep("vielfaeltige_Anwendungsgebiete",124) )
+gplot <- data.frame(These)
+Bewertung <- c(thesen$Traue_keiner_Statistik,thesen$zukunftsorientiert,thesen$trocken,thesen$gute_Berufsaussichten,
+               thesen$Angst, thesen$wichtige_Informationsquelle, thesen$nur_Maenner,thesen$Kreativitaet,
+               thesen$beweisen_nichts, thesen$vielfaeltige_Anwendungsgebiete)
+gplot$Bewertung <- Bewertung
+gplot    #df mit Bewertung und These "nebeneinander"
+
+# Dann kann man einen gemeinsamen table machen:
+table(gplot$Bewertung, gplot$These)
+
+# Barplot absolute Werte und unsortiert:
+barplot( table(gplot$Bewertung, gplot$These), horiz = TRUE,  col = c("indianred4", "goldenrod","darkseagreen3", "darkslategrey"),
+         names.arg = c("Angst","beweisen_nichts","Berufsaussichten","Kreativitaet","nur_Meanner","traue_keiner","trocken",
+                       "vielf_Anwendung","Infoquelle","zukonftsorientiert"),las=2 )
+
+# table durch Laenge der NA bereinigten Thesen teilen: 71
+# vergleiche mit summary: Es gibt immer 53 NAs 124-53 = 71
+
+# Barplot mit relativen Werten unsortiert:
+barplot( table(gplot$Bewertung, gplot$These)/71, horiz = TRUE,  col = c("indianred4", "goldenrod","darkseagreen3", "darkslategrey"),
+         names.arg = c("Angst","beweisen_nichts","Berufsaussichten","Kreativitaet","nur_Meanner","traue_keiner","trocken",
+                       "vielf_Anwendung","Infoquelle","zukonftsorientiert"),las=2 )
+
+# Sortierung machen:
+t <- table(gplot$Bewertung, gplot$These)/71
+
+# Gewuenschte Reihenfolge (mit den Tabellen abgelesen) als Index:
+x <- c("vielfaeltige_Anwendungsgebiete","wichtige_Informationsquelle","gute_Berufaussichten","Angst","zukunftsorientiert",
+       "Traue_keiner_Statistik","trocken","beweisen_nichts","Kreativitaet","nur_Maenner")
+x <- rev(x)         # leider habe ich oben alles falsch herrum abgetippt, also nochmal umdrehen
+sortiert <- t[,x]   
+sortiert
+
+# Barplot sortiert und mit relativen Werten.
+# Aber die Legende funktioniert noch nicht , kollidiert mit der x-Achse
+par(mar = c(5,8,3,1))
+barplot( sortiert , horiz = TRUE,  col = c("indianred4", "goldenrod","darkseagreen3", "darkslategrey"),
+         names.arg = c("nur_Maenner", "Kreativität", "beweisen_nichts","trocken","traue_keiner",
+                       "zukunftsorientiert","Angst","Berufsaussichten","Infoquelle","vielf_Anwendung"), las =2,
+         main = "Zustimmung der einzelnen Thesen")
+legend(x = "bottom", inset = c(0, -0.2), 
+       c("Stimme gar nicht zu", "Stimme eher nicht zu", "Stimme eher zu", 
+         "Stimme voll zu"), xpd = TRUE, ncol = 2, 
+       fill = c("indianred4", "goldenrod", "darkseagreen3", "darkslategrey"), 
+       cex = 1)
+
+#########################????????????????????????????????????????????????????#########################################
+
+
+
+
+
+
 #-------------------------------------------------------------------------------
 ##-ASSOZIATIONEN & WAHRNEHMUNG-##
 Coloursceme <- rev(c("darkgreen", "chartreuse", "yellow", "orange", "red"))

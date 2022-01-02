@@ -608,10 +608,23 @@ relevanz_nicht_statis <- nicht_statis[ ,13:15]
 sapply(relevanz_nicht_statis, function(x){ prop.table(table(x)) })
 
 #----------------------------------------------------------------------------------------------------
+#zusammenhang von Leistung und eigene Assoziation
 
-
-
-
-
-
-
+table(umf[c(26, 30)])
+#                Leistung
+# Assoziationen  schlecht nicht so gut mittelmäßig ganz gut bestens
+# negativ             1            1           0        0       0
+# eher negativ        0            3           3        2       0
+# neutral             1            1           4        7       2
+# eher positiv        0            1           7       11       0
+# positiv             0            0           2        5       4
+plot(umf[c(26, 30)])
+# corrplot(umf[c(26, 30)])  Problem: nicht numerisch
+prop.table(table(umf[c(26, 30)]))
+#               Leistung
+# Assoziationen     schlecht nicht so gut mittelmäßig   ganz gut    bestens
+# negativ       0.01818182   0.01818182  0.00000000 0.00000000 0.00000000
+# eher negativ  0.00000000   0.05454545  0.05454545 0.03636364 0.00000000
+# neutral       0.01818182   0.01818182  0.07272727 0.12727273 0.03636364
+# eher positiv  0.00000000   0.01818182  0.12727273 0.20000000 0.00000000
+# positiv       0.00000000   0.00000000  0.03636364 0.09090909 0.07272727

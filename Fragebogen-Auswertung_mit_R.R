@@ -486,17 +486,16 @@ sortiert
 
 # Barplot sortiert und mit relativen Werten.
 
-par(mar = c(12,8,4,4))
+par(mar = c(12,8,4,2))
 barplot( sortiert , horiz = TRUE,  col = c("indianred4", "goldenrod","darkseagreen3", "darkslategrey"),
          names.arg = c("nur_Maenner", "Kreativität", "beweisen_nichts","trocken","traue_keiner",
                        "zukunftsorientiert","Angst","Berufsaussichten","Infoquelle","vielf_Anwendung"), las =2,
          main = "Zustimmung der einzelnen Thesen")
-legend(x = "bottom", inset = c(0, -0.4), 
+legend(x = "bottom", inset = c(0, -0.45), 
        c("Stimme gar nicht zu", "Stimme eher nicht zu", "Stimme eher zu", 
          "Stimme voll zu"), xpd = TRUE, ncol = 2, 
        fill = c("indianred4", "goldenrod", "darkseagreen3", "darkslategrey"), 
-       cex = 0.7)
-?barplot
+       cex = 1, bty = "n")
 
 
 #-------------------------------------------------------------------------------

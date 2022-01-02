@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.9.19)  2 JAN 2022 18:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.9.19)  2 JAN 2022 18:27
 entering extended mode
 **"./Übung 4.tex"
 (Übung 4.tex
@@ -638,15 +638,15 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-<gestapelter_Barplot_Thesen.png, id=1, 903.375pt x 615.80063pt>
+<gestapelter_Barplot_Thesen.png, id=1, 934.24031pt x 615.80063pt>
 File: gestapelter_Barplot_Thesen.png Graphic file (type png)
 <use gestapelter_Barplot_Thesen.png>
 Package pdftex.def Info: gestapelter_Barplot_Thesen.png  used on input line 27.
 
-(pdftex.def)             Requested size: 442.65762pt x 301.74495pt.
+(pdftex.def)             Requested size: 448.43025pt x 295.58093pt.
 
-Overfull \hbox (8.88757pt too wide) in paragraph at lines 27--29
-[][]  
+Overfull \hbox (0.2993pt too wide) in paragraph at lines 27--29
+[][]
  []
 
 <sort_pos_neg_Hfgkeit_angekreuzter_Eigenschaften.png, id=3, 1004.25188pt x 627.
@@ -844,7 +844,7 @@ ublic/lm/lmr10.pfb><C:/Users/baer-/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/lm/lmr12.pfb><C:/Users/baer-/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/lm/lmr6.pfb><C:/Users/baer-/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/lm/lmssbx10.pfb>
-Output written on "Übung 4.pdf" (9 pages, 974904 bytes).
+Output written on "Übung 4.pdf" (9 pages, 977609 bytes).
 PDF statistics:
  78 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

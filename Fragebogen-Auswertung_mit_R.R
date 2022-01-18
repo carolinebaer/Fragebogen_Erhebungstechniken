@@ -635,3 +635,60 @@ prop.table(table(umf[c(26, 30)]))
 # eher positiv  0.00000000   0.01818182  0.12727273 0.20000000 0.00000000
 # positiv       0.00000000   0.00000000  0.03636364 0.09090909 0.07272727
 
+
+
+#### Wie viele NA und Stichprobenumfang ########################################################
+
+# N= 128  des umf Datensatz mit NA Zeilen
+
+?complete.cases
+# Datensatz wo TrUE bei kein NA und FALSE bei NA
+index <- sapply( umf, complete.cases)
+
+str(index)
+index <- as.data.frame(index)
+index <- index[ ,-1 ] # Antwort_ID rausnehmen
+index <- index[ , -c(15:24)] # Alle Eigenschaften raus nehmen, weil dort auch ein TRUE steht
+index
+
+# Da ueberall FALSE steht wo NA steht, sind die Zeilensummen wo nur NAs stehen Null
+which( rowSums(index) == 0 )
+
+# Datensatz ohne die NA Zeilen (d.h. in allen Spalten steht bei der Person ein NA)
+# N = 76 wenn man NA Zeilen rausnimmt . d.h. 124-76 = 48 NA Zeilen
+umf_ohne_NA <- umf[ -(which( rowSums(index) == 0 )), ]
+umf_ohne_NA
+
+# N_Statis = 18 , N_Nicht_Statis = 50 , N_Statis+N_Nicht_Statis = 68
+# Das heisst in Studienfach muss es auch NAs geben (dann würden die Zeilen ja auch nicht in des stati Datensaetzen
+# auftauchen) und zwar 8 Stueck, was auch der Fall ist:
+sum(is.na(umf_ohne_NA$Studienfach))
+
+
+#statis demografische Daten:
+
+summary( statis[ ,30:38] )
+sapply( statis[ ,30:38], table)
+
+#nicht statis demografische Daten
+summary( nicht_statis[ ,30:38] )
+# 1998 entfernen
+which(nicht_statis$Alter == 1998)
+nicht_statis <- nicht_statis[-26 ,  ]
+summary( nicht_statis[ ,30:38] )
+sapply( nicht_statis[ ,30:38], table)
+
+#Gesamt Stichprobe demg. Daten:
+# Falsche ALter rausschmeissen
+which(umf_ohne_NA$Alter == 1998)
+umf_ohne_NA <- umf_ohne_NA[-32 ,  ]
+
+summary( umf_ohne_NA[ ,30:38] )
+sapply( umf_ohne_NA[ ,30:38], table)
+
+
+
+
+
+
+
